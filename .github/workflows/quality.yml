@@ -1,0 +1,39 @@
+name: Quality
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Install pinned uv
+        run: python -m pip install uv==0.12.5
+      - name: Install locked dependencies
+        run: uv sync --frozen
+      - name: Lint and format
+        run: |
+          uv run --no-sync ruff check .
+          uv run --no-sync ruff format --check .
+      - name: Tests including network-blocked CLI
+        run: uv run --no-sync pytest
+      - name: Check tracked files and history for common credential patterns
+        run: uv run --no-sync python scripts/check_secrets.py --history
+      - name: Exercise report and schema exports
+        run: |
+          uv run --no-sync cohortlayer-demo run --scenario update --version v1 --output demo-output/v1
+          uv run --no-sync cohortlayer-demo run --scenario update --version v2 --output demo-output/v2
+          uv run --no-sync cohortlayer-demo diff demo-output/v1/report.json demo-output/v2/report.json --output demo-output/diff
+          uv run --no-sync cohortlayer-demo schemas --output demo-output/schemas
