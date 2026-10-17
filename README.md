@@ -34,6 +34,7 @@ execution, `4` output-integrity conflict.
 - [Example report](examples/report.md) and [version comparison](examples/diff.md).
 - [Architecture and decisions](docs/architecture.md).
 - [Acceptance criteria and tests](docs/acceptance.md).
+- [Four-agent implementation review and verification](docs/review.md).
 - [Data provenance and reuse policy](docs/data.md).
 - [Public/private boundary](docs/public-private.md).
 - [Validated source specification (Estonian)](docs/specification.et.md).
