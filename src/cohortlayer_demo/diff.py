@@ -1,5 +1,6 @@
 """Semantic differences built exclusively from releasable projections."""
 
+from .comparison import compare, phenotype_flags
 from .contracts import Change, DiffReport, Report
 from .disclosure import disclose
 
@@ -61,12 +62,15 @@ def compare_reports(before: Report, after: Report) -> DiffReport:
     else:
         conclusions = [
             {
-                "comparison": r.comparison.model_dump(mode="json"),
+                "comparison": compare(report.hypothesis, list(cohorts.values())).model_dump(
+                    mode="json"
+                ),
                 "flags": [
-                    f.model_dump(mode="json") for f in sorted(r.flags, key=lambda f: f.cohort_id)
+                    f.model_dump(mode="json")
+                    for f in phenotype_flags(sorted(cohorts.values(), key=lambda c: c.cohort_id))
                 ],
             }
-            for r in (before, after)
+            for report, cohorts in zip((before, after), cohort_maps, strict=True)
         ]
         change = _change("conclusions", *conclusions)
         conclusion_changes = [change] if change is not None else []

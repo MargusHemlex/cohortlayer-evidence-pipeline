@@ -51,6 +51,15 @@ def _load_report(path: Path) -> Report:
     report = Report.model_validate_json(path.read_bytes())
     if content_hash(report.manifest) != report.manifest_id:
         raise ValueError("manifest_mismatch")
+    # This release imports only its own predefined synthetic fixture exports.
+    # Reconstruct the entire expected report, not merely the manifest checksum.
+    # This binds visible values, identities, disclosure, conclusions and provenance.
+    # Historical code builds / arbitrary public data need a separately reviewed importer.
+    expected = run_demo(
+        report.hypothesis.hypothesis_id, report.scenario_id, report.manifest.dataset_version
+    )
+    if canonical_bytes(report) != canonical_bytes(expected):
+        raise ValueError("report_integrity_mismatch")
     return report
 
 

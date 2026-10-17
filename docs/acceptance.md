@@ -11,12 +11,12 @@ This table maps its acceptance criteria to runnable evidence.
 | AC04: separate effects and compatibility | `comparison.py`, mismatch and null-boundary tests |
 | AC05: distinct statuses and flag semantics | comparison/adapter tests, partial CLI test |
 | AC06: synthetic provenance survives export | all report round trips, example reports |
-| AC07: deterministic identity | repeated-run test, RFC 8785, source/config digests, idempotent writes |
+| AC07: deterministic identity | repeated-run test, RFC 8785, source/config digests, idempotent writes, full fixture-export import verification |
 | AC08: version changes and safe diff | `test_diff.py`, CLI v1/v2 integration |
 | AC09: output boundary | disclosure/diff sentinel tests and sanitized CLI error test |
 | AC10: reuse rights | no real snapshots shipped; `docs/data.md` inventory and future gate |
 | AC11: CI and secret checks | `.github/workflows/quality.yml`, frozen `uv.lock`, history scan |
-| AC12: truthful portfolio docs | README, architecture, examples and AI attribution |
+| AC12: truthful portfolio docs | README, architecture, AI attribution, checked-in example freshness test |
 | AC13: independent public/private boundary | minimal dependency list, `docs/public-private.md`, history review |
 
 The handcrafted secret checker is intentionally limited to common credential

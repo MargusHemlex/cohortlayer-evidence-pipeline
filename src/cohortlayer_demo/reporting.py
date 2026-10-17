@@ -38,6 +38,26 @@ def render_report(report: Report) -> str:
             f"| {estimate} | {cohort.carrier_count if cohort.carrier_count is not None else '—'} "
             f"| {cohort.case_count if cohort.case_count is not None else '—'} |"
         )
+    lines += ["", "## Effect meaning and population", ""]
+    for cohort in sorted(report.cohorts, key=lambda item: item.cohort_id):
+        lines += [f"### {cohort.cohort_id}", "", f"Population: {_text(cohort.population)}.", ""]
+        effect = cohort.effect
+        if effect is not None:
+            lines += [
+                f"Trait: `{_text(effect.trait_id)}` · Unit: `{_text(effect.unit)}` · "
+                f"Encoding: `{_text(effect.phenotype_encoding)}`.",
+                "",
+                f"Contrast: `{_text(effect.contrast_id)}` · Build: `{_text(effect.genome_build)}`.",
+                "",
+            ]
+            if effect.effect_allele is not None:
+                lines += [
+                    f"Effect allele: `{_text(effect.effect_allele)}` · "
+                    f"Reference allele: `{_text(effect.reference_allele)}`.",
+                    "",
+                ]
+        else:
+            lines += ["Effect metadata and statistics not released.", ""]
     lines += ["", "## Fictional phenotype flags", ""]
     for flag in report.flags:
         lines.append(f"- {flag.cohort_id}: **{flag.status}** ({_text(flag.reason_code)}).")

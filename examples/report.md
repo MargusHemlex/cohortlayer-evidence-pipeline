@@ -11,6 +11,25 @@ Execution: **complete** · Cohort comparison: **concordant** · Direction vs hyp
 | Cohort A | succeeded | released | -0.4 [-0.5, -0.3] (beta) | 80 | 120 |
 | Cohort B | succeeded | released | -0.3 [-0.4, -0.2] (beta) | 80 | 120 |
 
+## Effect meaning and population
+
+### Cohort A
+
+Population: Fictional population; not a real cohort.
+
+Trait: `DEMO:TRAIT_A` · Unit: `standard_deviation` · Encoding: `higher_value_means_more_trait`.
+
+Contrast: `perturbed_vs_baseline` · Build: `GRCh38`.
+
+### Cohort B
+
+Population: Fictional population; not a real cohort.
+
+Trait: `DEMO:TRAIT_A` · Unit: `standard_deviation` · Encoding: `higher_value_means_more_trait`.
+
+Contrast: `perturbed_vs_baseline` · Build: `GRCh38`.
+
+
 ## Fictional phenotype flags
 
 - Cohort A: **not_assessable** (flag_input_unavailable).
@@ -24,9 +43,9 @@ A flag not firing is not evidence of clinical safety.
 
 ## Provenance
 
-Manifest: `sha256:8cbffda9cbb0c29a4e363888da0ac4e77948d3691bce7c9c2b22d6f504bfce61`
+Manifest: `sha256:638786d05f27459455f6dbbfd07fcfc05e291233ee01c1b522cf236f7f7a49a9`
 
-Code: `0.1.0@sha256:76b28c96b57220f762c7d8666beffda1893a0e9b153467230d34e5e71badce38`
+Code: `0.1.0@sha256:6d79060d9d144142628ba0fc8eb6dba16efd27f7f16af8d620599daaf76bd510`
 
 ## Limitations
 

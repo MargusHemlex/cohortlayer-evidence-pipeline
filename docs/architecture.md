@@ -38,6 +38,15 @@ has no statistical payload. The renderer receives only disclosed results.
 The diff rechecks disclosure and omits before/after values and derived conclusions
 when either side is restricted. No adapter diagnostics are logged.
 
+The CLI importer reconstructs the expected report from the selected fixed
+hypothesis/scenario/version and compares its full canonical content. A valid
+manifest hash alone is insufficient. Edited values, stale code exports and
+inconsistent conclusions are rejected with a controlled error. This is integrity
+validation of the current demo fixtures, not a digital signature or proof of an
+external scientific result. This release supports comparing v1/v2 exports from
+the same current code build only. The lower-level diff also recomputes conclusions
+from disclosed cohort fields instead of trusting supplied labels.
+
 This is not differential privacy. Metadata and content hashes remain available
 and can support inference in adversarial settings; only synthetic fixtures are
 allowed. Never use this program with confidential inputs or real cohort data.
@@ -54,6 +63,11 @@ The release Git commit can be recorded separately by CI.
 RFC 8785 serialization and stable record ordering define the canonical bytes.
 No machine paths, current timestamps, random run IDs or environment variables are
 included. Identical writes are reused; differing bytes at the same path fail.
+
+The synthetic raw-fixture digest intentionally includes pre-disclosure counts.
+Those fixture values are public in the source; a low-entropy hidden count could be
+recovered by enumerating candidate fixture hashes. This manifest design must not
+be reused as a privacy-preserving commitment to confidential data.
 
 ## Timeout scope
 
