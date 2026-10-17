@@ -33,7 +33,7 @@ jobs:
         run: uv run --no-sync python scripts/check_secrets.py --history
       - name: Exercise report and schema exports
         run: |
-          uv run --no-sync cohortlayer-demo run --scenario update --version v1 --output demo-output/v1
-          uv run --no-sync cohortlayer-demo run --scenario update --version v2 --output demo-output/v2
-          uv run --no-sync cohortlayer-demo diff demo-output/v1/report.json demo-output/v2/report.json --output demo-output/diff
-          uv run --no-sync cohortlayer-demo schemas --output demo-output/schemas
+          uv run --no-sync cohortlayer-pipeline run --scenario update --version v1 --output pipeline-output/v1
+          uv run --no-sync cohortlayer-pipeline run --scenario update --version v2 --output pipeline-output/v2
+          uv run --no-sync cohortlayer-pipeline diff pipeline-output/v1/report.json pipeline-output/v2/report.json --output pipeline-output/diff
+          uv run --no-sync cohortlayer-pipeline schemas --output pipeline-output/schemas

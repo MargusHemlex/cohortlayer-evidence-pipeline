@@ -7,5 +7,5 @@ dist/
 build/
 .env
 .env.*
-demo-output/
+pipeline-output/
 

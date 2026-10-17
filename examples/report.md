@@ -1,4 +1,4 @@
-# CohortLayer — synthetic evidence demo
+# CohortLayer Evidence Pipeline — synthetic example
 
 **SYNTHETIC SOFTWARE DEMONSTRATION — not scientific replication or target validation.**
 
@@ -43,9 +43,9 @@ A flag not firing is not evidence of clinical safety.
 
 ## Provenance
 
-Manifest: `sha256:638786d05f27459455f6dbbfd07fcfc05e291233ee01c1b522cf236f7f7a49a9`
+Manifest: `sha256:9c0c864722e5f6d4d70ff46da8b5957a6f3182113eb9b2ff06a23c3255eced30`
 
-Code: `0.1.0@sha256:6d79060d9d144142628ba0fc8eb6dba16efd27f7f16af8d620599daaf76bd510`
+Code: `0.1.0@sha256:df3c609e67a03320517a24e1534711becc02a78e2ae01815d93a2cef69767797`
 
 ## Limitations
 

@@ -1,8 +1,8 @@
 import pytest
 
-from cohortlayer_demo.adapters import run_adapter
-from cohortlayer_demo.comparison import compare, phenotype_flags
-from cohortlayer_demo.contracts import CohortResult, Hypothesis
+from cohortlayer_pipeline.adapters import run_adapter
+from cohortlayer_pipeline.comparison import compare, phenotype_flags
+from cohortlayer_pipeline.contracts import CohortResult, Hypothesis
 
 
 @pytest.fixture

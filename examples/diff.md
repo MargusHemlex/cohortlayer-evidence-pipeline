@@ -1,10 +1,10 @@
-# CohortLayer — synthetic version comparison
+# CohortLayer Evidence Pipeline — version comparison
 
 **SYNTHETIC SOFTWARE DEMONSTRATION — changes are not new scientific evidence.**
 
-Before: `sha256:638786d05f27459455f6dbbfd07fcfc05e291233ee01c1b522cf236f7f7a49a9`
+Before: `sha256:9c0c864722e5f6d4d70ff46da8b5957a6f3182113eb9b2ff06a23c3255eced30`
 
-After: `sha256:7512b8b47384c2910d9c4c1074d19741915deae7f9bf17759d1d4824c2feebab`
+After: `sha256:a33f7a675ef88c4d56cfbca3bfac0ec42f7cf2c85ee91570877ee39a2dca3cc7`
 
 ## Reference evidence
 

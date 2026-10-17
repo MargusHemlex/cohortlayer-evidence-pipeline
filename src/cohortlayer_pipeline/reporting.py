@@ -12,7 +12,7 @@ def _text(value: object) -> str:
 
 def render_report(report: Report) -> str:
     lines = [
-        "# CohortLayer — synthetic evidence demo",
+        "# CohortLayer Evidence Pipeline — synthetic example",
         "",
         "**SYNTHETIC SOFTWARE DEMONSTRATION — not scientific replication or target validation.**",
         "",
@@ -91,7 +91,7 @@ def render_report(report: Report) -> str:
 
 def render_diff(diff: DiffReport) -> str:
     lines = [
-        "# CohortLayer — synthetic version comparison",
+        "# CohortLayer Evidence Pipeline — version comparison",
         "",
         "**SYNTHETIC SOFTWARE DEMONSTRATION — changes are not new scientific evidence.**",
         "",

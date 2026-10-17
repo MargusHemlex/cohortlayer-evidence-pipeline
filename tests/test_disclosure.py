@@ -1,8 +1,8 @@
 import pytest
 from disclosure_helpers import cohort
 
-from cohortlayer_demo.contracts import CohortResult
-from cohortlayer_demo.disclosure import disclose
+from cohortlayer_pipeline.contracts import CohortResult
+from cohortlayer_pipeline.disclosure import disclose
 
 
 @pytest.mark.parametrize("field", ["carrier_count", "case_count"])

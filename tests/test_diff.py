@@ -1,8 +1,8 @@
 import pytest
 from disclosure_helpers import cohort, report
 
-from cohortlayer_demo.contracts import CohortResult, Evidence, Report
-from cohortlayer_demo.diff import compare_reports
+from cohortlayer_pipeline.contracts import CohortResult, Evidence, Report
+from cohortlayer_pipeline.diff import compare_reports
 
 
 @pytest.mark.parametrize("reverse", [False, True])

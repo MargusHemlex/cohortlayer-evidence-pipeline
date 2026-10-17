@@ -1,4 +1,4 @@
-# CohortLayer Evidence Demo
+# CohortLayer Evidence Pipeline
 
 A runnable, synthetic demonstration of cross-cohort evidence comparison: strict
 contracts, separate cohort results, disclosure controls, immutable provenance and
@@ -16,10 +16,10 @@ Initial dependency installation needs a network connection. Runtime needs none.
 
 ```sh
 uv sync --frozen
-uv run --no-sync cohortlayer-demo run --hypothesis HYP-001 --scenario update --version v1 --output demo-output/v1
-uv run --no-sync cohortlayer-demo run --hypothesis HYP-001 --scenario update --version v2 --output demo-output/v2
-uv run --no-sync cohortlayer-demo diff demo-output/v1/report.json demo-output/v2/report.json --output demo-output/diff
-uv run --no-sync cohortlayer-demo list
+uv run --no-sync cohortlayer-pipeline run --hypothesis HYP-001 --scenario update --version v1 --output pipeline-output/v1
+uv run --no-sync cohortlayer-pipeline run --hypothesis HYP-001 --scenario update --version v2 --output pipeline-output/v2
+uv run --no-sync cohortlayer-pipeline diff pipeline-output/v1/report.json pipeline-output/v2/report.json --output pipeline-output/diff
+uv run --no-sync cohortlayer-pipeline list
 ```
 
 The run writes a strict JSON report, a readable Markdown report and a manifest
@@ -70,7 +70,7 @@ uv run --no-sync ruff check .
 uv run --no-sync ruff format --check .
 uv run --no-sync pytest
 uv run --no-sync python scripts/check_secrets.py
-uv run --no-sync cohortlayer-demo schemas --output demo-output/schemas
+uv run --no-sync cohortlayer-pipeline schemas --output pipeline-output/schemas
 ```
 
 GitHub Actions runs the same quality checks and an offline-runtime integration

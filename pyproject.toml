@@ -3,7 +3,7 @@ requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "cohortlayer-evidence-demo"
+name = "cohortlayer-evidence-pipeline"
 version = "0.1.0"
 description = "Synthetic cross-cohort evidence comparison with reproducible provenance"
 readme = "README.md"
@@ -12,13 +12,13 @@ license = "MIT"
 dependencies = ["pydantic>=2.11,<3", "rfc8785>=0.1.4,<1"]
 
 [project.scripts]
-cohortlayer-demo = "cohortlayer_demo.cli:main"
+cohortlayer-pipeline = "cohortlayer_pipeline.cli:main"
 
 [dependency-groups]
 dev = ["pytest>=8.3,<10", "ruff>=0.11,<1", "jsonschema>=4.23,<5"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/cohortlayer_demo"]
+packages = ["src/cohortlayer_pipeline"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

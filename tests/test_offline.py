@@ -13,7 +13,7 @@ def blocked(*args, **kwargs):
 socket.socket = blocked
 socket.create_connection = blocked
 socket.getaddrinfo = blocked
-from cohortlayer_demo.cli import main
+from cohortlayer_pipeline.cli import main
 raise SystemExit(main(["run", "--scenario", "update", "--output", sys.argv[1]]))
 """
     env = {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}

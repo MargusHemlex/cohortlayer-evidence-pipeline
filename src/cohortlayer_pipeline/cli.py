@@ -35,13 +35,13 @@ def _parser() -> Parser:
     run.add_argument("--hypothesis", choices=sorted(HYPOTHESES), default="HYP-001")
     run.add_argument("--scenario", choices=SCENARIOS, default="concordant")
     run.add_argument("--version", choices=VERSIONS, default="v1")
-    run.add_argument("--output", type=Path, default=Path("demo-output/run"))
+    run.add_argument("--output", type=Path, default=Path("pipeline-output/run"))
     diff = sub.add_parser("diff", help="Compare two exported reports")
     diff.add_argument("before", type=Path)
     diff.add_argument("after", type=Path)
-    diff.add_argument("--output", type=Path, default=Path("demo-output/diff"))
+    diff.add_argument("--output", type=Path, default=Path("pipeline-output/diff"))
     schemas = sub.add_parser("schemas", help="Export closed JSON schemas")
-    schemas.add_argument("--output", type=Path, default=Path("demo-output/schemas"))
+    schemas.add_argument("--output", type=Path, default=Path("pipeline-output/schemas"))
     return parser
 
 

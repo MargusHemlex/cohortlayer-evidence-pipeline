@@ -2,13 +2,15 @@
 
 Versioon: 1.2 · 18. oktoober 2026
 
+Nimeuuendus: kasutaja kinnitatud nimi on **CohortLayer Evidence Pipeline**, repo `cohortlayer-evidence-pipeline`. Muudatus puudutab nimesid ja viiteid; funktsionaalsed nõuded jäävad samaks.
+
 ## 1. Eesmärk ja positsioneerimine
 
 Ehitame iseseisvalt käivitatava avaliku tarkvaranäidise, mis demonstreerib geneetiliste tõendite päritolu, versioonimist, kahe sünteetilise kohordi eraldi tulemuste võrdlemist ja muutuste jälgimist. Sihtrühm on tehniline värbaja, CTO ja automatiseeritud koodihindaja. Näidis peab lubama väiteid koodi ja testidega kontrollida.
 
 Näidis ei valideeri bioloogiliselt ravimi sihtmärki, ei tõenda põhjuslikkust ega sõltumatut teaduslikku replikatsiooni. See ei ühendu UK Biobanki, All of Usi ega teiste päriskohortidega. Päris allikast loetud tõend ja sünteetiline analüüs jäävad eraldi andmekihtideks; nende kokkulangevus ei ole uus teaduslik tõend.
 
-Avaliku repo soovituslik nimi on `cohortlayer-evidence-demo`. Privaatse tootemootori jaoks reserveerime eraldi repo `cohortlayer-engine`. Mõlemad on praegu kavandatavad; see dokument ei kinnita olemasolevaid tootmisvõimekusi.
+Avaliku repo soovituslik nimi on `cohortlayer-evidence-pipeline`. Privaatse tootemootori jaoks reserveerime eraldi repo `cohortlayer-engine`. Mõlemad on praegu kavandatavad; see dokument ei kinnita olemasolevaid tootmisvõimekusi.
 
 ## 2. Esimese versiooni ulatus
 
@@ -145,7 +147,7 @@ Kolm kuni viis hüpoteesi võivad olla mitme stsenaariumi sisendiks; kümme eral
 
 ## 9. Avalik ja privaatne osa
 
-| Avalik `cohortlayer-evidence-demo` | Privaatne `cohortlayer-engine` |
+| Avalik `cohortlayer-evidence-pipeline` | Privaatne `cohortlayer-engine` |
 |---|---|
 | Avalikud JSON-skeemid ja adapteriliides | Päriskohortide adapterid, päringud ja töötluskonfiguratsioon |
 | Sünteetilised andmed/generaator ja A/B adapterid | Ligipääsud, võtmed, kontod ja keskkonnaseadistus |

@@ -1,7 +1,7 @@
 import pytest
 
-from cohortlayer_demo.adapters import SCENARIOS, run_adapter
-from cohortlayer_demo.contracts import Hypothesis
+from cohortlayer_pipeline.adapters import SCENARIOS, run_adapter
+from cohortlayer_pipeline.contracts import Hypothesis
 
 
 @pytest.fixture

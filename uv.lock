@@ -21,7 +21,7 @@ wheels = [
 ]
 
 [[package]]
-name = "cohortlayer-evidence-demo"
+name = "cohortlayer-evidence-pipeline"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

@@ -1,6 +1,6 @@
 """Small independent report builders for output-boundary tests."""
 
-from cohortlayer_demo.contracts import (
+from cohortlayer_pipeline.contracts import (
     CohortResult,
     Comparison,
     Effect,

@@ -4,16 +4,21 @@ from pathlib import Path
 import pytest
 from jsonschema import Draft202012Validator
 
-from cohortlayer_demo.cli import main
-from cohortlayer_demo.contracts import Report
-from cohortlayer_demo.fixtures import (
+from cohortlayer_pipeline.cli import main
+from cohortlayer_pipeline.contracts import Report
+from cohortlayer_pipeline.fixtures import (
     HYPOTHESES,
     SCENARIOS,
     deduplicate_evidence,
     reference_evidence,
 )
-from cohortlayer_demo.pipeline import run_demo
-from cohortlayer_demo.provenance import OutputConflict, canonical_bytes, content_hash, write_once
+from cohortlayer_pipeline.pipeline import run_demo
+from cohortlayer_pipeline.provenance import (
+    OutputConflict,
+    canonical_bytes,
+    content_hash,
+    write_once,
+)
 
 
 @pytest.mark.parametrize("hypothesis", HYPOTHESES)
@@ -39,7 +44,7 @@ def test_duplicate_reference_is_not_extra_confirmation():
 
 
 def test_pipeline_suppression_precedes_comparison_and_rendering(capsys):
-    from cohortlayer_demo.reporting import render_report
+    from cohortlayer_pipeline.reporting import render_report
 
     report = run_demo("HYP-001", "suppressed", "v1")
     hidden = next(c for c in report.cohorts if c.cohort_id == "Cohort B")
@@ -149,7 +154,7 @@ def test_edited_report_cannot_reuse_manifest(tmp_path, field):
 
 
 def test_standalone_markdown_preserves_effect_meaning():
-    from cohortlayer_demo.reporting import render_report
+    from cohortlayer_pipeline.reporting import render_report
 
     report = run_demo("HYP-003", "concordant", "v1")
     rendered = render_report(report)
@@ -177,8 +182,8 @@ def test_schemas_and_static_examples(tmp_path):
 
 
 def test_checked_in_examples_and_schemas_are_current():
-    from cohortlayer_demo.diff import compare_reports
-    from cohortlayer_demo.reporting import render_diff, render_report
+    from cohortlayer_pipeline.diff import compare_reports
+    from cohortlayer_pipeline.reporting import render_diff, render_report
 
     before = run_demo("HYP-001", "update", "v1")
     after = run_demo("HYP-001", "update", "v2")

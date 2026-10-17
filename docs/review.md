@@ -13,8 +13,11 @@ The snapshot included source, tests, CI, lockfile, examples and documentation.
 Claude's additional schema-evidence check confirmed the tracked Report schema at
 the same commit (Git blob `a6a3181dfeef0d83d29dd22e7195a4cf97ba10c5`).
 
-Subsequent changes only add this review record and its README link. They do not
-change executable source, fixtures or schemas.
+At review closure, only this record and its README link were added after the
+reviewed code commit. A later owner-requested rename to CohortLayer Evidence
+Pipeline updates package/CLI names and report headings; the original findings and
+reviewed commit above remain historical evidence, not a fresh four-agent review
+of subsequent commits. Naming changes are checked by tests and CI.
 
 ## Four additional agents
 
@@ -53,7 +56,7 @@ reviews, not a scientific, legal or formal security certification.
 - Tracked-file and reachable-history credential-pattern checks passed.
 - The CLI's offline-runtime integration test disables socket activity.
 - v1/v2 runs, semantic diff and schema export completed successfully.
-- [GitHub CI for the reviewed code commit](https://github.com/MargusHemlex/cohortlayer-evidence-demo/actions/runs/39076789920): **success**.
+- [GitHub CI for the reviewed code commit](https://github.com/MargusHemlex/cohortlayer-evidence-pipeline/actions/runs/39076789920): **success**.
 
 ## Known limits retained deliberately
 
