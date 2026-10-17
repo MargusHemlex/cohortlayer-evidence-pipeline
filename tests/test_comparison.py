@@ -9,7 +9,7 @@ from cohortlayer_pipeline.contracts import CohortResult, Hypothesis
 def hypothesis():
     return Hypothesis(
         hypothesis_id="example",
-        gene_id="DEMO:GENE",
+        gene_id="SYNTHETIC:GENE",
         trait_id="EFO:0000400",
         expected_direction="positive",
     )

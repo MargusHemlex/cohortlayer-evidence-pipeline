@@ -17,7 +17,7 @@ from .contracts import (
 )
 from .diff import compare_reports
 from .fixtures import HYPOTHESES, SCENARIOS, VERSIONS
-from .pipeline import run_demo
+from .pipeline import run_pipeline
 from .provenance import OutputConflict, canonical_bytes, content_hash, write_once
 from .reporting import render_diff, render_report
 
@@ -28,7 +28,7 @@ class Parser(argparse.ArgumentParser):
 
 
 def _parser() -> Parser:
-    parser = Parser(description="Synthetic evidence software demo; no real cohort access.")
+    parser = Parser(description="Synthetic evidence software pipeline; no real cohort access.")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("list", help="List fictional hypotheses and scenarios")
     run = sub.add_parser("run", help="Run two synthetic cohort adapters")
@@ -55,7 +55,7 @@ def _load_report(path: Path) -> Report:
     # Reconstruct the entire expected report, not merely the manifest checksum.
     # This binds visible values, identities, disclosure, conclusions and provenance.
     # Historical code builds / arbitrary public data need a separately reviewed importer.
-    expected = run_demo(
+    expected = run_pipeline(
         report.hypothesis.hypothesis_id, report.scenario_id, report.manifest.dataset_version
     )
     if canonical_bytes(report) != canonical_bytes(expected):
@@ -88,7 +88,7 @@ def main(argv: list[str] | None = None) -> int:
             print("schemas_exported")
             return 0
         if args.command == "run":
-            report = run_demo(args.hypothesis, args.scenario, args.version)
+            report = run_pipeline(args.hypothesis, args.scenario, args.version)
             manifest_name = report.manifest_id.removeprefix("sha256:") + ".json"
             write_once(
                 args.output / "manifests" / manifest_name, canonical_bytes(report.manifest) + b"\n"
@@ -103,7 +103,7 @@ def main(argv: list[str] | None = None) -> int:
         diff = compare_reports(before, after)
         write_once(args.output / "diff.json", canonical_bytes(diff) + b"\n")
         write_once(args.output / "diff.md", render_diff(diff).encode())
-        print("version_comparison_exported (synthetic demonstration)")
+        print("version_comparison_exported (synthetic evaluation)")
         return 0
     except OutputConflict:
         print("error: output_integrity_conflict", file=sys.stderr)

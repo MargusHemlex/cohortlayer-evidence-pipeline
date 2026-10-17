@@ -82,7 +82,7 @@ def compare_reports(before: Report, after: Report) -> DiffReport:
         cohort_changes=cohort_changes,
         conclusion_changes=conclusion_changes,
         limitations=[
-            "Synthetic demonstration; differences are not new scientific evidence.",
+            "Synthetic evaluation; differences are not new scientific evidence.",
             "Restricted comparisons disclose no statistics or derived conclusion details.",
             "Aggregate release is not a formal privacy guarantee.",
         ],

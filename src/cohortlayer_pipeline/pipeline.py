@@ -15,7 +15,7 @@ from .fixtures import (
 from .provenance import code_identity, content_hash
 
 LIMITATIONS = [
-    "SYNTHETIC SOFTWARE DEMONSTRATION: no real cohort access or scientific validation.",
+    "SYNTHETIC SOFTWARE EVALUATION: no real cohort access or scientific validation.",
     "Synthetic agreement is not independent replication, causality or clinical safety.",
     "No pooled effect is calculated. The comparison rule is illustrative only.",
     "Count suppression is not a formal privacy guarantee or protection from all inference.",
@@ -23,13 +23,13 @@ LIMITATIONS = [
 ]
 
 
-def run_demo(hypothesis_id: str, scenario_id: str, dataset_version: str) -> Report:
+def run_pipeline(hypothesis_id: str, scenario_id: str, dataset_version: str) -> Report:
     if (
         hypothesis_id not in HYPOTHESES
         or scenario_id not in SCENARIOS
         or dataset_version not in VERSIONS
     ):
-        raise ValueError("unsupported_demo_input")
+        raise ValueError("unsupported_pipeline_input")
     hypothesis = HYPOTHESES[hypothesis_id]
     raw = [
         run_adapter(name, hypothesis, scenario_id, dataset_version)

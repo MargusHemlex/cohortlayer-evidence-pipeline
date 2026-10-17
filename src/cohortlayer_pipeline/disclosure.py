@@ -1,8 +1,8 @@
-"""A demonstrative aggregate-release policy, not a privacy guarantee."""
+"""A illustrative aggregate-release policy, not a privacy guarantee."""
 
 from .contracts import CohortResult
 
-POLICY_VERSION = "demo-disclosure-v1"
+POLICY_VERSION = "pipeline-disclosure-v1"
 POLICY_CONFIG = {"k": 10}
 
 

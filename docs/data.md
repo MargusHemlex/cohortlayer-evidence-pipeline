@@ -1,8 +1,8 @@
 # Data inventory and reuse policy
 
 All current inputs are repository-authored **synthetic aggregate fixtures**.
-Names under `DEMO:` are fictional. They are not real Ensembl, EFO or ClinVar IDs.
-GRCh38 is a compatibility label for the demo contract; no real variant is mapped.
+Names under `SYNTHETIC:` are fictional. They are not real Ensembl, EFO or ClinVar IDs.
+GRCh38 is a compatibility label for the pipeline contract; no real variant is mapped.
 
 | Data | Location | Origin | Terms |
 |---|---|---|---|
@@ -12,9 +12,9 @@ GRCh38 is a compatibility label for the demo contract; no real variant is mapped
 | Example reports | `examples/` | Generated from those fixtures | MIT |
 
 The wrapper duplication scenario shares an explicit original record identifier.
-It demonstrates deduplication, not discovery of overlapping participants.
+It illustrates deduplication, not discovery of overlapping participants.
 Population overlap remains unknown unless explicitly established; distinct source
-names do not demonstrate independence.
+names do not illustrate independence.
 
 ## Future public-reference layer: not shipped
 

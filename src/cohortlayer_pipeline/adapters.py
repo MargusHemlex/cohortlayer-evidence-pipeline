@@ -81,7 +81,7 @@ def run_adapter(
             estimate=1.5 if not is_b else 1.1,
             ci_lower=1.2 if not is_b else 1.0,
             ci_upper=1.8 if not is_b else 1.3,
-            trait_id="DEMO:ADVERSE_EVENT",
+            trait_id="SYNTHETIC:ADVERSE_EVENT",
             unit="ratio",
             phenotype_encoding="1=fictional_event",
             contrast_id="perturbed_vs_baseline",

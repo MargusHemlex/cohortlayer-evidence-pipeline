@@ -23,7 +23,7 @@ of subsequent commits. Naming changes are checked by tests and CI.
 
 | Reviewer | Role | Final result |
 |---|---|---|
-| Codex `demo_scope` | Implemented adapters/comparison; cross-reviewed integration and provenance | PASS |
+| Codex implementation agent | Implemented adapters/comparison; cross-reviewed integration and provenance | PASS |
 | Codex `evidence_boundaries` | Implemented disclosure/diff; cross-reviewed reporting and import boundary | PASS |
 | Claude Code | Independent architecture/code review; checked correction and schema-evidence closure | PASS |
 | Kimi K3 | Independent acceptance/edge-case review; checked correction closure | PASS |

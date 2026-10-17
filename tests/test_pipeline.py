@@ -12,7 +12,7 @@ from cohortlayer_pipeline.fixtures import (
     deduplicate_evidence,
     reference_evidence,
 )
-from cohortlayer_pipeline.pipeline import run_demo
+from cohortlayer_pipeline.pipeline import run_pipeline
 from cohortlayer_pipeline.provenance import (
     OutputConflict,
     canonical_bytes,
@@ -25,9 +25,9 @@ from cohortlayer_pipeline.provenance import (
 @pytest.mark.parametrize("scenario", SCENARIOS)
 @pytest.mark.parametrize("version", ["v1", "v2"])
 def test_every_run_validates_and_repeats(hypothesis, scenario, version):
-    report = run_demo(hypothesis, scenario, version)
+    report = run_pipeline(hypothesis, scenario, version)
     payload = canonical_bytes(report)
-    assert payload == canonical_bytes(run_demo(hypothesis, scenario, version))
+    assert payload == canonical_bytes(run_pipeline(hypothesis, scenario, version))
     assert Report.model_validate_json(payload) == report
     Draft202012Validator(Report.model_json_schema()).validate(json.loads(payload))
     assert report.manifest_id == content_hash(report.manifest)
@@ -46,7 +46,7 @@ def test_duplicate_reference_is_not_extra_confirmation():
 def test_pipeline_suppression_precedes_comparison_and_rendering(capsys):
     from cohortlayer_pipeline.reporting import render_report
 
-    report = run_demo("HYP-001", "suppressed", "v1")
+    report = run_pipeline("HYP-001", "suppressed", "v1")
     hidden = next(c for c in report.cohorts if c.cohort_id == "Cohort B")
     assert hidden.disclosure_status == "suppressed"
     assert hidden.effect is None and hidden.adverse_effect is None
@@ -113,7 +113,7 @@ def test_partial_cli_and_sanitized_invalid_input(tmp_path, capsys):
 
 
 def test_manifest_tampering_rejected(tmp_path):
-    report = run_demo("HYP-001", "concordant", "v1").model_dump(mode="json")
+    report = run_pipeline("HYP-001", "concordant", "v1").model_dump(mode="json")
     report["manifest"]["code_version"] = "tampered"
     path = tmp_path / "tampered.json"
     path.write_text(json.dumps(report))
@@ -133,7 +133,7 @@ def test_manifest_tampering_rejected(tmp_path):
     ],
 )
 def test_edited_report_cannot_reuse_manifest(tmp_path, field):
-    report = run_demo("HYP-001", "concordant", "v1").model_dump(mode="json")
+    report = run_pipeline("HYP-001", "concordant", "v1").model_dump(mode="json")
     if field == "cohort_version":
         report["cohorts"][0]["dataset_version"] = "v2"
     elif field == "analysis":
@@ -156,7 +156,7 @@ def test_edited_report_cannot_reuse_manifest(tmp_path, field):
 def test_standalone_markdown_preserves_effect_meaning():
     from cohortlayer_pipeline.reporting import render_report
 
-    report = run_demo("HYP-003", "concordant", "v1")
+    report = run_pipeline("HYP-003", "concordant", "v1")
     rendered = render_report(report)
     effect = report.cohorts[0].effect
     for value in (
@@ -185,8 +185,8 @@ def test_checked_in_examples_and_schemas_are_current():
     from cohortlayer_pipeline.diff import compare_reports
     from cohortlayer_pipeline.reporting import render_diff, render_report
 
-    before = run_demo("HYP-001", "update", "v1")
-    after = run_demo("HYP-001", "update", "v2")
+    before = run_pipeline("HYP-001", "update", "v1")
+    after = run_pipeline("HYP-001", "update", "v2")
     assert Path("examples/report.json").read_bytes() == canonical_bytes(before) + b"\n"
     assert Path("examples/report.md").read_text() == render_report(before)
     diff = compare_reports(before, after)

@@ -5,21 +5,21 @@ from .contracts import Evidence, Hypothesis
 HYPOTHESES = {
     "HYP-001": Hypothesis(
         hypothesis_id="HYP-001",
-        gene_id="DEMO:GENE_A",
-        trait_id="DEMO:TRAIT_A",
+        gene_id="SYNTHETIC:GENE_A",
+        trait_id="SYNTHETIC:TRAIT_A",
         expected_direction="negative",
     ),
     "HYP-002": Hypothesis(
         hypothesis_id="HYP-002",
-        gene_id="DEMO:GENE_B",
-        trait_id="DEMO:TRAIT_B",
+        gene_id="SYNTHETIC:GENE_B",
+        trait_id="SYNTHETIC:TRAIT_B",
         expected_direction="positive",
     ),
     "HYP-003": Hypothesis(
         hypothesis_id="HYP-003",
-        gene_id="DEMO:GENE_C",
-        variant_id="DEMO:VARIANT_C",
-        trait_id="DEMO:TRAIT_C",
+        gene_id="SYNTHETIC:GENE_C",
+        variant_id="SYNTHETIC:VARIANT_C",
+        trait_id="SYNTHETIC:TRAIT_C",
         expected_direction="negative",
     ),
 }
@@ -43,13 +43,13 @@ FIXTURE_VERSION = "aggregate-fixtures-v1"
 
 
 def reference_evidence(version: str, scenario_id: str) -> list[Evidence]:
-    """Return demonstrative source records with explicit original-record identity."""
+    """Return illustrative source records with explicit original-record identity."""
     records = [
         Evidence(
-            evidence_id="DEMO:EVIDENCE_1",
+            evidence_id="SYNTHETIC:EVIDENCE_1",
             source="Fictional Registry A",
-            source_record_id="DEMO:ORIGINAL_1",
-            study_id="DEMO:STUDY_1",
+            source_record_id="SYNTHETIC:ORIGINAL_1",
+            study_id="SYNTHETIC:STUDY_1",
             source_version=version,
             data_kind="synthetic",
             retrieved_at_reason="generated_fixture",
@@ -62,7 +62,7 @@ def reference_evidence(version: str, scenario_id: str) -> list[Evidence]:
         records.append(
             records[0].model_copy(
                 update={
-                    "evidence_id": "DEMO:EVIDENCE_WRAPPER",
+                    "evidence_id": "SYNTHETIC:EVIDENCE_WRAPPER",
                     "source": "Fictional Registry B",
                 }
             )
@@ -77,9 +77,9 @@ def reference_evidence(version: str, scenario_id: str) -> list[Evidence]:
         )
         records.append(
             Evidence(
-                evidence_id="DEMO:EVIDENCE_2",
+                evidence_id="SYNTHETIC:EVIDENCE_2",
                 source="Fictional Registry A",
-                source_record_id="DEMO:ORIGINAL_2",
+                source_record_id="SYNTHETIC:ORIGINAL_2",
                 study_id=None,
                 study_id_reason="fictional_unassigned_study",
                 source_version=version,

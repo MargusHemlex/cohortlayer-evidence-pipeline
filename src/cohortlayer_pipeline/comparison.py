@@ -1,4 +1,4 @@
-"""Transparent demonstrative comparison, without scientific replication claims."""
+"""Transparent illustrative comparison, without scientific replication claims."""
 
 from .contracts import CohortResult, Comparison, Hypothesis, PhenotypeFlag
 
@@ -77,7 +77,7 @@ def phenotype_flags(cohorts: list[CohortResult]) -> list[PhenotypeFlag]:
             and cohort.disclosure_status == "released"
             and effect is not None
             and effect.measure == "odds_ratio"
-            and effect.trait_id == "DEMO:ADVERSE_EVENT"
+            and effect.trait_id == "SYNTHETIC:ADVERSE_EVENT"
         )
         if not eligible:
             status, reason = "not_assessable", "flag_input_unavailable"

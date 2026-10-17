@@ -1,8 +1,9 @@
 # CohortLayer Evidence Pipeline
 
-A runnable, synthetic demonstration of cross-cohort evidence comparison: strict
-contracts, separate cohort results, disclosure controls, immutable provenance and
-version-to-version changes.
+A reproducible cross-cohort evidence pipeline with strict data contracts,
+separate cohort results, disclosure controls, immutable provenance and
+version-to-version changes. Synthetic aggregate fixtures make every workflow
+locally executable without access to a managed cohort.
 
 **This is software engineering evidence, not drug-target validation.** Cohort A and
 Cohort B are fictional. No UK Biobank, All of Us or other managed cohort is queried.
@@ -15,6 +16,8 @@ Requirements: Python 3.12–3.15 and [uv](https://docs.astral.sh/uv/).
 Initial dependency installation needs a network connection. Runtime needs none.
 
 ```sh
+git clone https://github.com/MargusHemlex/cohortlayer-evidence-pipeline.git
+cd cohortlayer-evidence-pipeline
 uv sync --frozen
 uv run --no-sync cohortlayer-pipeline run --hypothesis HYP-001 --scenario update --version v1 --output pipeline-output/v1
 uv run --no-sync cohortlayer-pipeline run --hypothesis HYP-001 --scenario update --version v2 --output pipeline-output/v2
@@ -37,6 +40,7 @@ execution, `4` output-integrity conflict.
 - [Four-agent implementation review and verification](docs/review.md).
 - [Data provenance and reuse policy](docs/data.md).
 - [Public/private boundary](docs/public-private.md).
+- [Repository contents and release-readiness checks](docs/release-readiness.md).
 - [Validated source specification (Estonian)](docs/specification.et.md).
 
 ## Scope
@@ -78,18 +82,18 @@ test. No service secrets are required.
 
 ## Attribution and limitations
 
-The repository is a portfolio artifact commissioned and reviewed by its owner,
-MargusHemlex, with AI-assisted implementation and review by Codex agents,
-Claude Code and Kimi K3. Review records distinguish specification review from code
-review; no claim of independent human scientific review is made.
+Designed and maintained by MargusHemlex, with AI-assisted implementation and
+review by Codex agents, Claude Code and Kimi K3. Review records distinguish
+specification review from code review; no claim of independent human scientific
+review is made.
 
-The demo's `k=10` count rule is illustrative. Count suppression is not differential
+The pipeline's `k=10` count rule is illustrative. Count suppression is not differential
 privacy or a guarantee against inference across repeated queries. Even suppressed
-reports retain run identity and metadata; use no sensitive inputs in this demo.
+reports retain run identity and metadata; use no sensitive inputs in this pipeline.
 The comparison rule is not a validated scientific protocol and does not establish
 causality, clinical utility or generalization across populations.
 
-The demo is standalone. Real cohort access, confidential customer hypotheses,
+The pipeline is standalone. Real cohort access, confidential customer hypotheses,
 production configuration and proprietary methods belong in a separate private
 engine and are not dependencies of this repository.
 

@@ -1,4 +1,4 @@
-"""Strict transport contracts shared by the standalone demo modules."""
+"""Strict transport contracts shared by the standalone pipeline modules."""
 
 from typing import Literal
 
@@ -16,7 +16,7 @@ class Hypothesis(Contract):
     trait_id: str
     genome_build: Literal["GRCh38"] = "GRCh38"
     expected_direction: Literal["positive", "negative"]
-    protocol_version: str = "demo-comparison-v1"
+    protocol_version: str = "pipeline-comparison-v1"
 
 
 class Effect(Contract):
@@ -141,7 +141,7 @@ class Comparison(Contract):
 
 class PhenotypeFlag(Contract):
     cohort_id: Literal["Cohort A", "Cohort B"]
-    rule_version: Literal["demo-flag-v1"] = "demo-flag-v1"
+    rule_version: Literal["pipeline-flag-v1"] = "pipeline-flag-v1"
     status: Literal["triggered", "not_triggered", "not_assessable"]
     reason_code: str
 

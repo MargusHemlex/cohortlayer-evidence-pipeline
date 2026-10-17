@@ -14,7 +14,7 @@ def render_report(report: Report) -> str:
     lines = [
         "# CohortLayer Evidence Pipeline — synthetic example",
         "",
-        "**SYNTHETIC SOFTWARE DEMONSTRATION — not scientific replication or target validation.**",
+        "**SYNTHETIC SOFTWARE EVALUATION — not scientific replication or target validation.**",
         "",
         f"Hypothesis: `{_text(report.hypothesis.hypothesis_id)}` · "
         f"Scenario: `{_text(report.scenario_id)}` · Version: `{report.manifest.dataset_version}`",
@@ -93,7 +93,7 @@ def render_diff(diff: DiffReport) -> str:
     lines = [
         "# CohortLayer Evidence Pipeline — version comparison",
         "",
-        "**SYNTHETIC SOFTWARE DEMONSTRATION — changes are not new scientific evidence.**",
+        "**SYNTHETIC SOFTWARE EVALUATION — changes are not new scientific evidence.**",
         "",
         f"Before: `{diff.before_manifest_id}`",
         "",

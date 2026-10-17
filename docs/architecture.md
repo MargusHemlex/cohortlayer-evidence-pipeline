@@ -13,7 +13,7 @@ Two saved reports → validated input → disclosure projection again
 ```
 
 The interface is deliberately narrow: `run_adapter`, `disclose`, `compare`,
-`phenotype_flags`, `run_demo`, and `compare_reports`. The code has no model or
+`phenotype_flags`, `run_pipeline`, and `compare_reports`. The code has no model or
 cloud SDK, database or production worker abstraction.
 
 ## Evidence and execution mean different things
@@ -24,7 +24,7 @@ of disclosure restrictions or incompatible measurements. Two released comparable
 intervals that include the null in either cohort yield `inconclusive`.
 Intervals entirely on the same side of the null yield `concordant`; intervals on
 opposite sides yield `conflicting`. Beta's null is 0, odds ratio's null is 1.
-This interval rule is demonstrative, not a significance or replication protocol.
+This interval rule is illustrative, not a significance or replication protocol.
 
 `direction_vs_hypothesis` is separate: two consistent estimates can both oppose
 the expected direction. Units, trait encoding, contrasts, alleles, genome build
@@ -42,7 +42,7 @@ The CLI importer reconstructs the expected report from the selected fixed
 hypothesis/scenario/version and compares its full canonical content. A valid
 manifest hash alone is insufficient. Edited values, stale code exports and
 inconsistent conclusions are rejected with a controlled error. This is integrity
-validation of the current demo fixtures, not a digital signature or proof of an
+validation of the current pipeline fixtures, not a digital signature or proof of an
 external scientific result. This release supports comparing v1/v2 exports from
 the same current code build only. The lower-level diff also recomputes conclusions
 from disclosed cohort fields instead of trusting supplied labels.

@@ -62,7 +62,7 @@ def test_evidence_ids_drive_add_remove_and_change():
             study_id_reason="fictional",
             retrieved_at_reason="generated_fixture",
             data_kind="synthetic",
-            license_ref="synthetic-demo",
+            license_ref="synthetic-fixture",
             summary=summary,
         )
 
