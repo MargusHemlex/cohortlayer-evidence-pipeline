@@ -1,6 +1,7 @@
 # Acceptance criteria and verification
 
-The authoritative scope is [specification version 1.2](specification.et.md).
+The authoritative scope is [specification version 1.2 (English)](specification.md), with the
+[reviewed Estonian source](specification.et.md) retained for provenance.
 This table maps its acceptance criteria to runnable evidence.
 
 | Criterion | Implementation / verification |

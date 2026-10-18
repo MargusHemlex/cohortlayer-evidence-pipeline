@@ -1,14 +1,19 @@
 # CohortLayer Evidence Pipeline
 
-A reproducible cross-cohort evidence pipeline with strict data contracts,
-separate cohort results, disclosure controls, immutable provenance and
-version-to-version changes. Synthetic aggregate fixtures make every workflow
-locally executable without access to a managed cohort.
+Compare evidence from two cohorts without losing the meaning of their results, disclosure restrictions or provenance. When an input version changes, explain which records and conclusions changed.
+
+This standalone Python pipeline demonstrates that engineering problem using fictional gene–trait hypotheses and fixed aggregate fixtures. It keeps each cohort's estimate separate, rejects incompatible measurements, filters restricted statistics before reporting and produces reproducible JSON/Markdown outputs with content-addressed manifests.
 
 **This is software engineering evidence, not drug-target validation.** Cohort A and
 Cohort B are fictional. No UK Biobank, All of Us or other managed cohort is queried.
 Agreement between synthetic fixtures is not independent scientific replication.
 There are no patient data, credentials, model calls or paid services.
+
+## Review in five minutes
+
+1. Inspect the [example report](examples/report.md) and [version comparison](examples/diff.md): what the user receives.
+2. Read the [architecture](docs/architecture.md): validation → disclosure → comparison → provenance and reporting.
+3. Run the example below, then inspect [acceptance criteria and test coverage](docs/acceptance.md). The [English specification](docs/specification.md) defines the scope; the architecture explains implemented limits.
 
 ## Run locally
 
@@ -25,23 +30,24 @@ uv run --no-sync cohortlayer-pipeline diff pipeline-output/v1/report.json pipeli
 uv run --no-sync cohortlayer-pipeline list
 ```
 
+Expected output from the two `run` commands and the `diff` command:
+
+```text
+complete: concordant (synthetic)
+complete: conflicting (synthetic)
+version_comparison_exported (synthetic evaluation)
+```
+
+In v1, both fictional cohort intervals lie below the null effect. In v2, Cohort B's interval moves above it, while Cohort A's stays below. The comparison therefore changes from `concordant` to `conflicting`, and hypothesis direction changes from `matches` to `mixed`. The diff separates the changed cohort statistics, fictional reference annotation and derived conclusions. This is an intentionally constructed update, not a new scientific finding.
+
+Open `pipeline-output/v1/report.md`, `pipeline-output/v2/report.md` and `pipeline-output/diff/diff.md` to inspect the results. The checked-in examples above show the v1 report and the v1/v2 comparison before installation.
+
 The run writes a strict JSON report, a readable Markdown report and a manifest
 addressed by its SHA-256 content hash. An identical rerun reuses identical files;
 it never silently overwrites different results. Use a new output directory for a
 different run. Exit codes: `0` completed computation (including inconclusive or
 suppressed evidence), `2` invalid invocation or input, `3` partial/failed cohort
 execution, `4` output-integrity conflict.
-
-## What to inspect
-
-- [Example report](examples/report.md) and [version comparison](examples/diff.md).
-- [Architecture and decisions](docs/architecture.md).
-- [Acceptance criteria and tests](docs/acceptance.md).
-- [Four-agent implementation review and verification](docs/review.md).
-- [Data provenance and reuse policy](docs/data.md).
-- [Public/private boundary](docs/public-private.md).
-- [Repository contents and release-readiness checks](docs/release-readiness.md).
-- [Validated source specification (Estonian)](docs/specification.et.md).
 
 ## Scope
 
@@ -79,6 +85,12 @@ uv run --no-sync cohortlayer-pipeline schemas --output pipeline-output/schemas
 
 GitHub Actions runs the same quality checks and an offline-runtime integration
 test. No service secrets are required.
+
+## Supporting records
+
+- [Data provenance and reuse policy](docs/data.md) and [public/private boundary](docs/public-private.md).
+- [Implementation review and verification](docs/review.md) and [release-readiness record](docs/release-readiness.md): dated review scope and publication history.
+- [English specification](docs/specification.md), with the [reviewed Estonian source](docs/specification.et.md) retained for provenance.
 
 ## Attribution and limitations
 
