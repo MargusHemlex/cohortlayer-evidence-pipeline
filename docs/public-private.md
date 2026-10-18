@@ -1,7 +1,8 @@
 # Public/private boundary
 
-The pipeline is being prepared in a **private** repository. Publication requires a
-separate final decision; this document does not change GitHub visibility.
+The owner approved publication of this standalone pipeline on **18 October 2026**
+after final review. The separate product repository remains **private**, and its
+deployment is unchanged.
 
 | Intended public pipeline | Future private engine |
 |---|---|

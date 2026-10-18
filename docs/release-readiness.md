@@ -1,7 +1,9 @@
 # Repository contents and release readiness
 
 This repository contains the standalone **CohortLayer Evidence Pipeline**.
-Its GitHub visibility remains private until a separate release decision.
+The owner approved public release on **18 October 2026**, after the final
+four-agent review of `a7758b585fe00b371b5b064ae4aaf50866919019`.
+The separate product repository and its deployment remain private and unchanged.
 
 ## Included
 

@@ -1,7 +1,7 @@
 # Implementation review and verification
 
-Date: 18 October 2026. This repository remains **private**; no publication or
-production deployment was performed.
+Date: 18 October 2026. The repository was **private during this implementation
+review**; no publication or production deployment was performed by that review.
 
 ## Reviewed implementation
 
@@ -76,3 +76,12 @@ reviews, not a scientific, legal or formal security certification.
 Public release still requires the owner's review of this concrete repository,
 including rights, confidentiality and the intended public/private boundary.
 
+
+## Subsequent publication decision
+
+On 18 October 2026 the owner approved public release after a separate final review
+of `a7758b585fe00b371b5b064ae4aaf50866919019`. Both Codex reviewers, Claude Code and
+Kimi K3 returned PASS. The primary agent repeated all 162 tests, lint/format and
+history credential checks, built the package and exercised an isolated installed
+wheel. Python verification used 3.12; other declared versions were not fully tested.
+The separate product repository and production deployment remain unchanged.
