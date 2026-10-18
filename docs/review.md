@@ -73,8 +73,9 @@ reviews, not a scientific, legal or formal security certification.
 - The timeout scenario is simulated; no production worker cancellation or real
   managed-cohort integration exists.
 
-Public release still requires the owner's review of this concrete repository,
-including rights, confidentiality and the intended public/private boundary.
+At implementation-review closure, public release still required the owner's review
+of rights, confidentiality and the intended public/private boundary. The subsequent
+release decision is recorded below.
 
 
 ## Subsequent publication decision
